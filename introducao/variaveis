@@ -1,0 +1,9 @@
+<?php
+
+// Atribuir uma valor à uma variável chamada idade exibir
+
+$idade = 33
+
+echo "Eu tenho $idade anos";
+
+?>
