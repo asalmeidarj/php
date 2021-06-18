@@ -15,9 +15,9 @@ echo 'Me chamo $nome e tenho $idade anos';
   Se utilizássemos aspas duplas seria exibido o valor atribuído à variável
 */
 echo "Me chamo $nome e tenho $idade anos"; 
-// resultado: Me chamo Alessandro e tenho 32 anos
 
-
+// CONCATENANDO TEXTO
+echo 'Meu nome é ' . $nome . ' e tenho ' . $idade ' anos.';
 
 
  
