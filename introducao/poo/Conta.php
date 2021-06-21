@@ -3,13 +3,23 @@
 class Conta
 {
     // definir os atributos da conta
-    public string $cpfTitular;
-    public string $nomeTitular;
-    public float $saldo = 0;
+    private string $cpfTitular;
+    private string $nomeTitular;
+    private float $saldo;
+
+    
+    // Método construtor
+    public function __construct(string $cpfTitular, string $nomeTitular)
+    {
+        $this->cpfTitular = $cpfTitular;
+        $this->validaNomeTitular($nomeTitular);
+        $this->nomeTitular = $nomeTitular;
+        $this->saldo = 0;
+    }
 
 
     // Métodos da classe
-    public function sacar(float $valorSacar): void
+    public function saca(float $valorSacar): void
     {
         if ($valorSacar > $this->saldo) {
             echo 'Saldo insuficiente!' . PHP_EOL;
@@ -19,7 +29,7 @@ class Conta
         $this->saldo -= $valorSacar;            
     }
 
-    public function depositar(float $valorDepositar): void
+    public function deposita(float $valorDepositar): void
     {
         if ($valorDepositar <= 0) {
             echo 'Error: Deposite um valor acima de 0' . PHP_EOL;
@@ -29,7 +39,7 @@ class Conta
         $this->saldo += $valorDepositar;    
     }
 
-    public function transferir(float $valorTransferir, Conta $contaDestino): void
+    public function transferi(float $valorTransferir, Conta $contaDestino): void
     {
         if ($valorTransferir > $this->saldo) {
             echo 'Saldo insuficiente!' . PHP_EOL;
@@ -40,9 +50,37 @@ class Conta
             return;
         }
 
-        $this->sacar($valorTransferir);
-        $contaDestino->depositar($valorTransferir);
+        $this->saca($valorTransferir);
+        $contaDestino->deposita($valorTransferir);
     }
+
+    public function recuperaSaldo(): float
+    {
+        return $this->saldo;
+    }
+
+    public function recuperaNomeTitular(): string
+    {
+        return $this->nomeTitular;
+    }
+
+    public function recuperaCpfTitular(): string
+    {
+        return $this->cpfTitular;
+    }
+
+    private function validaNomeTitular(string $nome): void
+    {
+        if (mb_strlen($nome) < 5)
+        {
+            echo 'O nome deve conter mais de 5 caracteres' . PHP_EOL;
+            exit();
+        }
+    }
+
+
+
+
 } //Fim classe Conta.
 
 
