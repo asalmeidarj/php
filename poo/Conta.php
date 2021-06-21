@@ -20,7 +20,14 @@ class Conta
     }
 
 
-    // Métodos da classe
+    // Métodos státicos
+    public static function recuperaNumeroContas(): int
+    {
+        return self::$numeroContas;
+    }
+    
+    
+    // Métodos de instância
     public function saca(float $valorSacar): void
     {
         if ($valorSacar > $this->saldo) {
