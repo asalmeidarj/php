@@ -2,10 +2,12 @@
 
 class Conta
 {
-    // definir os atributos da conta
+    // definir os atributos
+    // Atributos da instância
     private string $cpfTitular;
     private string $nomeTitular;
     private float $saldo;
+    // Atributos da classe
     private static $numeroContas = 0;
 
     
