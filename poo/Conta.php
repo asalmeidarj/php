@@ -16,6 +16,7 @@ class Conta
         $this->validaNomeTitular($nomeTitular);
         $this->nomeTitular = $nomeTitular;
         $this->saldo = 0;
+        self::$numeroContas++;
     }
 
 
