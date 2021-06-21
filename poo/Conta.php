@@ -4,19 +4,16 @@ class Conta
 {
     // definir os atributos
     // Atributos da instância
-    private string $cpfTitular;
-    private string $nomeTitular;
+    private Titular $titular
     private float $saldo;
     // Atributos da classe
     private static $numeroContas = 0;
 
     
     // Método construtor
-    public function __construct(string $cpfTitular, string $nomeTitular)
+    public function __construct(Titular $titular)
     {
-        $this->cpfTitular = $cpfTitular;
-        $this->validaNomeTitular($nomeTitular);
-        $this->nomeTitular = $nomeTitular;
+        $this->titular = $titular;
         $this->saldo = 0;
         self::$numeroContas++;
     }
@@ -79,23 +76,13 @@ class Conta
 
     public function recuperaNomeTitular(): string
     {
-        return $this->nomeTitular;
+        return $this->titular->recuperaNome();
     }
 
     public function recuperaCpfTitular(): string
     {
-        return $this->cpfTitular;
+        return $this->titular->recuperaCpf;
     }
-
-    private function validaNomeTitular(string $nome): void
-    {
-        if (mb_strlen($nome) < 5)
-        {
-            echo 'O nome deve conter mais de 5 caracteres' . PHP_EOL;
-            exit();
-        }
-    }
-
 
 
 
