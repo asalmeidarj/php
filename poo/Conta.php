@@ -6,6 +6,7 @@ class Conta
     private string $cpfTitular;
     private string $nomeTitular;
     private float $saldo;
+    private static $numeroContas = 0;
 
     
     // Método construtor
