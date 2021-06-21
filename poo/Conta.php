@@ -21,6 +21,13 @@ class Conta
         self::$numeroContas++;
     }
 
+    
+    // Método desconstrutor
+    public function __destruct()
+    {
+        self::$numeroContas--;
+    }
+    
 
     // Métodos státicos
     public static function recuperaNumeroContas(): int
